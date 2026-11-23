@@ -1,6 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Recam.DataAccess.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
+
+//register db context
+builder.Services.AddDbContext<RecamDbContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
+);
 
 // Add services to the container.
 
